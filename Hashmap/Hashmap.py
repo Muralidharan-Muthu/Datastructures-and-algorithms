@@ -15,15 +15,54 @@ class HashMap:
         # Got the index value for our main value to store
         h = self.getHash(key)
         self.Array[h] = value
+
+    # This method is mainly used to get the value for a key
+    def get(self,key):
+        # by taking the key. It will provide the value 
+        index = self.getHash(key)
+        return self.Array[index]
+        
+    def __setitem__(self,key: str,value: int):
+        # Got the index value for our main value to store
+        h = self.getHash(key)
+        self.Array[h] = value
+
+    # This method is mainly used to get the value for a key
+    def __getitem__(self,key):
+        # by taking the key. It will provide the value 
+        index = self.getHash(key)
+        return self.Array[index]
+    
+    def __delitem__(self,key):
+        index = self.getHash(key)
+        self.Array[index] = None
     
     def show(self):
         print(self.Array)
+
+    # lets see collisions in the next video
+    
+
 
 if __name__ == "__main__":
     HM = HashMap()
     HM.add("Apple",49)
     HM.add("Banana",52)
+    print(HM.get("Apple"))
+
+    # lets use the __getitem__() and __setitem__() without specifing the method name
+    HM['Orange'] = 35
+    HM['Strawberry'] = 46
+
+    print(HM['Apple'])
+    print(HM['Orange'])
     HM.show()
+
+    del HM['Apple']
+    
+    HM.show()
+ 
+ 
 
 
 

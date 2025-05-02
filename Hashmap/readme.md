@@ -23,3 +23,12 @@
 # 1. Look up by key is O(1) on average
 # 2. Insertion and Deletion is O(1) on average
 
+# COLLISION
+
+# The collision is called index repeataion. when we pass a key into the Hash function it gives the same index sometimes
+# For example
+# HM['Banana'] -> Index value is 7
+# HM['Strawberry'] -> Index value is 7
+
+# So it replaces the previous value with the new one. Data lost has occured.
+
