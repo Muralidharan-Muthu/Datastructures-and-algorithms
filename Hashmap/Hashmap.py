@@ -40,7 +40,7 @@ class HashMap:
     def show(self):
         print(self.Array)
 
-    # lets see collisions in the next video
+    # Collision Handling
 
 
 
