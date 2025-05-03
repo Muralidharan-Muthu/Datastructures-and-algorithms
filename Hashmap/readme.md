@@ -26,7 +26,7 @@
 
 # COLLISION
 
-# The collision is called index repeataion. when we pass a key into the Hash function it gives the same index sometimes
+# The collision is called index repetation. when we pass a key into the Hash function it gives the same index sometimes
 # For example
 # HM['Banana'] -> Index value is 7
 # HM['Strawberry'] -> Index value is 7
