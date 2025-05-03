@@ -36,12 +36,12 @@ class HashMap:
     def __delitem__(self,key):
         index = self.getHash(key)
         self.Array[index] = None
-    
+     
     def show(self):
         print(self.Array)
 
     # lets see collisions in the next video
-    
+
 
 
 if __name__ == "__main__":
