@@ -1,4 +1,3 @@
-
 class HashMap:
     def __init__(self):
         self.MAX = 50 # array size
@@ -40,29 +39,84 @@ class HashMap:
     def show(self):
         print(self.Array)
 
-    # Collision Handling
+# SEPERATE CHAINING COLLISION HANDLING  in this class
+class HashMapCollisionHandled(HashMap):
+    
+    def __init__(self):
+        # get variables from the parent class HashMap
+        super().__init__()
+        self.Array = [[] for x in range(self.MAX)]
+    
+    # overriding the method for collision handling (seperate chaining)
+    def __setitem__(self, key, value):
+        h = self.getHash(key)
+        found = False
+        for index,element in enumerate(self.Array[h]):
+            if (len(element) == 2) and (element[1] == key):
+                found = True
+                self.Array[h][index] = (key,value)
+        if not found:
+            self.Array[h].append((key,value))
 
-
-
+    # overriding the method for collision handling (seperate chaining)
+    def __getitem__(self, key):
+        h = self.getHash(key)
+        for element in self.Array[h]:
+            if element[0] == key:
+                return element[1]
+    
+    # overriding the method to delete the (key,value) in the array
+    def __delitem__(self, key):
+        h = self.getHash(key)
+        for index,element in enumerate(self.Array[h]):
+            if element[0] == key:
+                del self.Array[h][index]
+    
+    # overriding the method to show all the element in 2D array
+    def show(self):
+        for element in self.Array:
+            print(element)
+        
+        
 if __name__ == "__main__":
+    # HashMap class instance
     HM = HashMap()
+
+    # set (key,value) to HashMap
     HM.add("Apple",49)
     HM.add("Banana",52)
-    print(HM.get("Apple"))
-
-    # lets use the __getitem__() and __setitem__() without specifing the method name
     HM['Orange'] = 35
     HM['Strawberry'] = 46
 
+    # get value from HashMap by using the key
     print(HM['Apple'])
     print(HM['Orange'])
-    HM.show()
 
+    # Deleting value using key
     del HM['Apple']
-    
+
+    # show full array
     HM.show()
- 
- 
+    
+    print("----------------------------------------------------")
+    # HashMapCollisionHandled class instance
 
+    HMCH = HashMapCollisionHandled()
 
+    # set (Key,value) pair
+    HMCH["Carrot"] = 30
+    HMCH["Raddish"] = 50
+    HMCH["Brinjal"] = 40
+    HMCH["Potato"] = 70
+    HMCH["Tomato"] = 60
+    HMCH["Optato"] = 20
 
+    # get value using key
+    print(HMCH["Brinjal"])
+    print(HMCH["Potato"])
+
+    # delete value using key
+    del HMCH["Potato"]
+
+    # show full array
+    HMCH.show()
