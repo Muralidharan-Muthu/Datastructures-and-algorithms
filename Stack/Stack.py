@@ -18,7 +18,7 @@ class Stack:
     
     # to check is our stack memory is empty or not
     def is_empty(self):
-        return (self.container) == 0
+        return len(self.container) == 0
     
     # to get the size of the stack
     def size(self):
