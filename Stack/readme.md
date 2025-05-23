@@ -107,4 +107,8 @@
 
 # here the above example is the step by step implementation of stack data structure with example.
 
+# USE CASES FOR STACK
+# 1. Function calling in any programming language is managed using a stack.
+# 2. Undo (Ctrl + Z) function in any editor uses stack to track down last set of operations.
+
 # thankyou! 
